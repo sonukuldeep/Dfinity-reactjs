@@ -1,6 +1,11 @@
+![main-image](https://wsrv.nl/?url=repository-images.githubusercontent.com/282042743/9c891880-fdc0-11ea-8ccc-f3cd9c00e5ae&w=600)
+
 # Dfinity and Reactjs starter template
 
 Dfinity v0.17.0 and Reactjs v18.2.0
+
+## Intro
+The DFINITY Foundation is a major contributor to the Internet Computer blockchain.
 
 ## How to make it work?
 1. Install Nodejs v16.0.0 or higher.
