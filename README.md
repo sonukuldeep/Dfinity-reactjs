@@ -17,8 +17,9 @@ src
 ├── template_backend   --> my_app_backend
 └── template_frontend  --> my_app_frontend
 ```
-5. Replace all instance of template_backend with my_app_backend within 'src/my_app_frontend/src/index.jsx' file. 
-6. Change template_frontend with my_app_frontend on line 10 within 'webpack.config.js' file. 
+5. Replace all instance of template_backend with my_app_backend within 'src/my_app_frontend/src/index.jsx' file.
+6. Replace all instance of template_ with my_app_ within 'dfx.json' file.
+7. Change template_frontend with my_app_frontend on line 10 within 'webpack.config.js' file. 
 
 ## Running the project locally
 
