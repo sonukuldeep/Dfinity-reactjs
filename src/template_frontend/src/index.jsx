@@ -1,5 +1,9 @@
-import * as React from "react";
-import { render } from "react-dom";
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
 import { template_backend } from "../../declarations/template_backend";
 
 const MyHello = () => {
@@ -37,4 +41,8 @@ const MyHello = () => {
   );
 };
 
-render(<MyHello />, document.getElementById("app"));
+root.render(
+    <StrictMode>
+        <MyHello />
+    </StrictMode>
+);
