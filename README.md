@@ -2,7 +2,7 @@
 
 # Dfinity and Reactjs starter template
 
-Dfinity v0.17.0 and Reactjs v18.2.0
+Dfinity v0.18.0 and Reactjs v18.2.0
 
 ## Intro
 The DFINITY Foundation is a major contributor to the Internet Computer blockchain.
@@ -20,6 +20,67 @@ src
 5. Replace all instance of `template_backend` with `my_app_backend` within 'src/my_app_frontend/src/index.jsx' file.
 6. Replace all instance of `template_` with `my_app_` within 'dfx.json' file.
 7. Change `template_frontend` with `my_app_frontend` on line 10 within 'webpack.config.js' file. 
+
+or just save and run this bash file that does the samethings as described above
+```bash
+#!/bin/bash
+
+echo "Hello there!!"
+echo "Enter name of project folder (or press Enter for default):"
+read -e -i "Dfinity-reactjs" projectFolder
+
+if [ -d "$projectFolder" ]; then
+	echo "Folder exists."
+	echo "Enter desired project name"
+	read dpName
+
+	projectName="${dpName// /_}"
+	echo "New project name will be $projectName!"
+
+	if [ -f "$projectFolder/dfx.json" ]; then
+		sed -i 's/template_//g' "$projectFolder/dfx.json"
+		else
+			echo "$projectFolder/dfx.json not found"
+			exit 1
+	fi
+
+	if [ -f "$projectFolder/webpack.config.js" ]; then
+		sed -i '10s/template_frontend/frontend/g' "$projectFolder/webpack.config.js"
+		else
+			echo "$projectFolder/webpack.config.js not found"
+			exit 1
+	fi
+
+	if [ -f "$projectFolder/src/template_frontend/src/index.jsx" ]; then
+		sed -i 's/template_backend/backend/g' "$projectFolder/src/template_frontend/src/index.jsx"
+		else
+			echo "$projectFolder/src/template_frontend/src/index.jsx not found"
+			exit 1
+	fi
+
+	if [ -d "$projectFolder/src/template_backend" ]; then
+		mv $projectFolder/src/template_backend $projectFolder/src/backend 
+		else
+			echo "$projectFolder/src/template_backend not found"
+			exit 1
+	fi
+
+	if [ -d "$projectFolder/src/template_frontend" ]; then
+		mv $projectFolder/src/template_frontend $projectFolder/src/frontend 
+		else
+			echo "$projectFolder/src/template_frontend not found"
+			exit 1
+	fi
+
+
+	if [ "$projectFolder" != "$projectName" ]; then
+		mv $projectFolder $projectName
+	fi
+
+    else
+		echo "Folder does not exist."
+fi
+```
 
 ## Running the project locally
 
